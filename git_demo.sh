@@ -20,12 +20,7 @@ if [ -d $OTHER_REPO ]; then
     rm -rf $OTHER_REPO
 fi
 
-if [ "x$EDITOR" != "x" && $EDITOR == *"emacsclient"* ]; then
-    export EDITOR="emacsclient -t"
-elif [ "x$EDITOR" == "x" || $EDITOR == "" ]; then
-    echo "Need to set EDITOR"
-    exit 1
-fi
+export EDITOR="emacsclient -t"
 
 echo "Copying ${REPO} to ${OTHER_REPO}"
 
