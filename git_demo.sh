@@ -73,6 +73,6 @@ done
 # Cleanup
 git checkout master > /dev/null &2>/dev/null
 git push origin --delete make-some-changes > /dev/null &2>/dev/null
-git branch -d make-some-changes > /dev/null &2>/dev/null
+git branch -D make-some-changes > /dev/null &2>/dev/null
 git push origin --delete demo > /dev/null &2>/dev/null
-git branch -d demo > /dev/null &2>/dev/null
+git branch -D demo > /dev/null &2>/dev/null
