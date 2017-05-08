@@ -39,7 +39,7 @@ cd $REPO
 
 COMMANDS=(
     "git status"
-    "git log"
+    "git log --max-count 8"
     "git branch -v"
     "git checkout -b make-some-changes"
     "git branch -v"
@@ -67,7 +67,6 @@ COMMANDS=(
     "git push origin demo"
     "git log --graph --full-history --all --color --pretty=format:\"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s\""
     "git status"
-    "THE END"
 )
 
 git checkout -b demo
@@ -79,6 +78,11 @@ for COMMAND in "${COMMANDS[@]}"; do
     /bin/bash -c "$COMMAND"
     read  -n 1
 done
+
+printx_times "=" $COLS
+printf "%*s\n" $(( (${#COMMAND} + $COLS ) / 2)) "$COMMAND"
+printx_times "=" $COLS
+read  -n 1
 
 # Cleanup
 printf "Cleaning up...\n"
