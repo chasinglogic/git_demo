@@ -20,6 +20,13 @@ if [ -d $OTHER_REPO ]; then
     rm -rf $OTHER_REPO
 fi
 
+if [ "x$EDITOR" != "x" && $EDITOR == *"emacsclient"* ]; then
+    export EDITOR="emacsclient -t"
+elif [ "x$EDITOR" == "x" || $EDITOR == "" ]; then
+    echo "Need to set EDITOR"
+    exit 1
+fi
+
 echo "Copying ${REPO} to ${OTHER_REPO}"
 
 cp -R $REPO $OTHER_REPO
@@ -78,8 +85,8 @@ for COMMAND in "${COMMANDS[@]}"; do
 done
 
 # Cleanup
-git checkout master > /dev/null &2>/dev/null
-git push origin --delete make-some-changes > /dev/null &2>/dev/null
-git branch -D make-some-changes > /dev/null &2>/dev/null
-git push origin --delete demo > /dev/null &2>/dev/null
-git branch -D demo > /dev/null &2>/dev/null
+git checkout master > /dev/null 2>/dev/null
+git push origin --delete make-some-changes > /dev/null 2>/dev/null
+git branch -D make-some-changes > /dev/null 2>/dev/null
+git push origin --delete demo > /dev/null 2>/dev/null
+git branch -D demo > /dev/null 2>/dev/null
