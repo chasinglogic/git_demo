@@ -35,23 +35,19 @@ git push origin demo
 
 cd $REPO
 
-git checkout -b demo
-
-clear
-
 COMMANDS=(
     "git status"
     "git log"
     "git branch -v"
     "git checkout -b make-some-changes"
     "git branch -v"
-    "printf 'test\n' > new.txt"
+    "printf 'test\n' > new.txt && ls"
     "git status"
     "git add new.txt"
     "git status"
     "git commit -m 'add new.txt'"
     "git status"
-    "printf '\nlocal changes' >> test.txt"
+    "printf '\nlocal changes' >> test.txt && ls"
     "git add test.txt"
     "git commit -m 'make some local changes'"
     "git status"
@@ -61,15 +57,24 @@ COMMANDS=(
     "git merge make-some-changes"
     "git status"
     "git diff test.txt"
+    "cat test.txt"
+    "emacsclient -t test.txt"
+    "git status"
+    "git add test.txt"
+    "git commit"
+    "git push origin demo"
+    "git log --graph --full-history --all --color --pretty=format:\"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s\""
+    "git status"
 )
 
+git checkout -b demo
 for COMMAND in "${COMMANDS[@]}"; do
+    clear
     printx_times "=" $COLS
     printf "%*s\n" $(( (${#COMMAND} + $COLS ) / 2)) "$COMMAND"
     printx_times "=" $COLS
     /bin/bash -c "$COMMAND"
     read  -n 1
-    clear
 done
 
 # Cleanup
