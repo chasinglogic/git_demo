@@ -79,10 +79,11 @@ for COMMAND in "${COMMANDS[@]}"; do
     read  -n 1
 done
 
+clear
 printx_times "=" $COLS
-printf "%*s\n" $(( (${#COMMAND} + $COLS ) / 2)) "$COMMAND"
+END="THE END"
+printf "%*s\n" $(( (${#END} + $COLS ) / 2)) "$END"
 printx_times "=" $COLS
-read  -n 1
 
 # Cleanup
 printf "Cleaning up...\n"
