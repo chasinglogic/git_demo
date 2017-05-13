@@ -12,13 +12,9 @@ printx_times() {
 COLS=80
 HALF_COLS=40
 
-REPO="$(PWD)"
+REPO="$(pwd)"
 cd ..
-OTHER_REPO="$(PWD)/git_demo_other"
-
-if [ -d $OTHER_REPO ]; then
-    rm -rf $OTHER_REPO
-fi
+OTHER_REPO="$(pwd)/git_demo_other"
 
 export EDITOR="emacsclient -t"
 
@@ -35,7 +31,9 @@ git add --all
 git commit -m "make a change in text.txt to cause a conflict"
 git push origin demo
 
+echo "REPO $REPO"
 cd $REPO
+exit 0
 
 COMMANDS=(
     "git status"
