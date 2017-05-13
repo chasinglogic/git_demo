@@ -31,9 +31,7 @@ git add --all
 git commit -m "make a change in text.txt to cause a conflict"
 git push origin demo
 
-echo "REPO $REPO"
 cd $REPO
-exit 0
 
 COMMANDS=(
     "git status"
