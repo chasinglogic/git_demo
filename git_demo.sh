@@ -16,8 +16,6 @@ REPO="$(pwd)"
 cd ..
 OTHER_REPO="$(pwd)/git_demo_other"
 
-export EDITOR="emacsclient -t"
-
 echo "Copying ${REPO} to ${OTHER_REPO}"
 
 cp -R $REPO $OTHER_REPO
