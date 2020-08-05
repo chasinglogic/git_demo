@@ -56,7 +56,7 @@ COMMANDS=(
     "git status"
     "git diff test.txt"
     "cat test.txt"
-    "emacsclient -t test.txt"
+    "vim -t test.txt"
     "git status"
     "git add test.txt"
     "git commit"
